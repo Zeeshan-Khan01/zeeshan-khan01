@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FloMock Clone Futuristic</title>
+  <style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* Futuristic Background */
+    body {
+      margin: 
+      0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: radial-gradient(circle at top left, #161616, #050510, #1f1e1e);
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #a0b6dd;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(90deg, #6366f1, #38bdf8);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+
+    }
+
+    .btn:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 20px rgba(10, 100, 1000, 100);
+      color: #050510;
+    }
+
+    .hero {
+      text-align: left;
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin-left: 500px;
+      width: 1200px;
+      margin-top: 170px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .hero p {
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      color: #cbd5e1;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .feature {
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(56,189,248,0.6);
+    }
+
+    /* Company Slider Section */
+    .slider-section {
+      margin: 4rem 0;
+      background: linear-gradient(to right, #0f172a, #0f0f1a, #696666);
+      padding: 2rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slider-track {
+      display: flex;
+      width: calc(200%); /* for loop effect */
+      animation: scroll 20s linear infinite;
+    }
+
+    .slide {
+      flex: 0 0 auto;
+      width: 200px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ffffff;
+      margin: 0 2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+
+
+/* -------------------------
+   RESPONSIVE MEDIA QUERIES
+   Paste these at the END of your <style>
+   ------------------------- */
+
+/* Large laptops / small desktops */
+@media (max-width: 1400px) {
+  .hero {
+    margin-left: 120px;
+    width: calc(100% - 160px);
+    max-width: 1000px;
+  }
+}
+
+/* Desktop / laptop */
+@media (max-width: 1199px) {
+  header {
+    padding: 0.9rem 1.5rem;
+  }
+
+  /* center the hero and make width responsive */
+  .hero {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 92%;
+    max-width: 950px;
+    padding: 4rem 1.5rem;
+    margin-top: 130px;
+  }
+
+  .hero h1 { font-size: 2.6rem; }
+  .hero p  { font-size: 1.1rem; }
+
+  /* override inline hero button margin to center on narrower screens */
+  .hero .btn {
+    display: block;
+    margin: 12px auto 0 !important;
+    padding: 0.7rem 1.3rem;
+  }
+
+  /* make slider items slightly smaller */
+  .slide { width: 180px; margin: 0 1.5rem; }
+}
+
+/* Tablet and small laptops */
+@media (max-width: 991px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  nav {
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo { margin-top: 0; }
+
+  .hero {
+    text-align: center;
+    padding: 3rem 1.25rem;
+    margin-top: 90px;
+  }
+
+  .hero h1 { font-size: 2.1rem; }
+  .hero p  { font-size: 1rem; color: #cbd5e1; }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+    padding: 1.25rem;
+  }
+
+  .slide { width: 160px; margin: 0 1rem; font-size: 1.05rem; }
+  .slider-track { animation-duration: 22s; }
+}
+
+/* Large phones / small tablets */
+@media (max-width: 767px) {
+  header { padding: 0.7rem 1rem; }
+  .logo { font-size: 1.25rem; }
+
+  nav a { margin-left: 0.6rem; font-size: 0.95rem; }
+  .btn { padding: 0.55rem 1rem; font-size: 0.95rem; border-radius: 8px; }
+
+  .hero {
+    padding: 2.2rem 1rem;
+    margin-top: 60px;
+    width: 94%;
+    max-width: 680px;
+  }
+
+  .hero h1 { font-size: 1.75rem; line-height: 1.12; }
+  .hero p  { font-size: 0.98rem; }
+
+  .features { grid-template-columns: 1fr; gap: 0.7rem; padding: 1rem; }
+  .feature { padding: 1rem; }
+
+  .slide { width: 140px; margin: 0 0.75rem; font-size: 1rem; letter-spacing: 1px; }
+  .slider-track { animation-duration: 26s; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  header {
+    padding: 0.6rem 0.8rem;
+  }
+
+  /* hide secondary nav links to save space; keep CTA visible */
+  nav a { display: none; }
+
+  .logo { font-size: 1.05rem; }
+
+  .btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    padding: 1.6rem 0.8rem;
+    margin-top: 40px;
+    width: 96%;
+    max-width: 420px;
+  }
+
+  .hero h1 { font-size: 1.35rem; }
+  .hero p  { font-size: 0.9rem; }
+
+  /* ensure inline style on the hero button is overridden and centered */
+  .hero .btn {
+    display: block;
+    margin: 10px auto 0 !important;
+  }
+
+  .features { padding: 0.8rem; gap: 0.6rem; }
+  .feature { padding: 0.9rem; font-size: 0.95rem; }
+
+  .slide { width: 120px; margin: 0 0.45rem; font-size: 0.9rem; letter-spacing: 0.8px; }
+  .slider-track { animation-duration: 28s; }
+}
+
+/* Ultra small devices (very old phones) */
+@media (max-width: 360px) {
+  .hero h1 { font-size: 1.2rem; }
+  .hero p  { font-size: 0.85rem; }
+  .slide { width: 100px; margin: 0 0.4rem; font-size: 0.82rem; }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">FloMock</div>
+    <nav style="margin-top: 19px; margin-right: 5px;">
+      <a href="#" style="margin-right: 5px;">Docs</a>
+      <button class="btn">Get Started</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 style="font-family: cursive;">Build, run and scale AI workflows — Fast</h1>
+    <p>Experiment with RAG pipelines, manage models, and monitor performance — all from a single, modern dashboard.</p>
+    <button class="btn" style="margin-left: 370px; margin-top: 10px;">Try demo - it's free</button>
+  </section>
+
+  <!-- Company Slider -->
+  <section class="slider-section">
+    <div class="slider-track">
+      <div class="slide" style="font-family: cursive;">Google</div>
+      <div class="slide">Microsoft</div>
+      <div class="slide">Amazon</div>
+      <div class="slide">OpenAI</div>
+      <div class="slide">Meta</div>
+      <div class="slide">Tesla</div>
+      <div class="slide">IBM</div>
+      <div class="slide">NVIDIA</div>
+      <!-- repeat again for smooth loop -->
+      <div class="slide">Google</div>
+      <div class="slide">Microsoft</div>
+      <div class="slide">Amazon</div>
+      <div class="slide">OpenAI</div>
+      <div class="slide">Meta</div>
+      <div class="slide">Tesla</div>
+      <div class="slide">IBM</div>
+      <div class="slide">NVIDIA</div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature">Live telemetry - Requests, latency, failures — visualized in real time.</div>
+    <div class="feature">Auto-tuning - Tune RAG hyperparams automatically for best results.</div>
+    <div class="feature">Experimentation - Spin up RAG experiments in minutes.</div>
+    <div class="feature">Secure by default - RBAC, VPC-style isolation and audit logs.</div>
+    <div class="feature">Scale - Scales horizontally on cloud infra.</div>
+  </section>
+</body>
+</html>

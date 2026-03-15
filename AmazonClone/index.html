@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Grid Clone</title>
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .wrapper {
+            display: grid;
+            width: 100vw;
+            gap: 0px;
+            grid-template-rows: repeat(4,auto);
+            background-color: lightgray;
+        }
+
+        .header, .navbar {
+            background-color: lightblue;
+            padding: 10px;
+        }
+
+        .slider {
+            background-color: lightgreen;
+            padding: 10px;
+        }
+
+    
+
+        .row1 {
+            display: grid;
+            grid-template-columns: repeat(4,auto);
+            gap: 20px;
+            padding: 20px;          
+        }
+
+        .box {
+            display: grid;
+            grid-template-rows: repeat(4,auto);
+            border: solid1 1px red;
+            gap: 10px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        
+
+        .row2 {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4,auto);
+            border: solid 1px  black;
+            padding: 10px;
+        }
+
+        .r2, .r3 {
+            grid-template-columns: repeat(2,auto);
+            display: grid;
+            gap: 2px;
+        }
+
+        .innerbox {
+            display: grid;
+            grid-template-rows: repeat(2,auto);
+        }
+
+        .innerbox .pic img {
+            width: 90%;
+        }
+
+        .innerbox .pic img:hover {
+            cursor: pointer;
+            
+        }
+
+        .innerbox p {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+       .row3 {
+       
+        display: grid;
+        gap: 20px;
+        grid-template-rows: repeat(2,auto);
+        border: solid 1px  black;
+        padding: 10px;
+        background-color: white;
+       }
+
+
+       .c1 {
+        display: grid;
+        grid-template-columns: repeat(5,auto);
+       }
+
+       .c1 .pic img {
+        width: 90%;
+       }
+
+       .c1 .pic {
+        margin: 10px;
+    }
+
+    .header {
+        background-color: #222;
+        display: grid;
+        grid-template-columns: repeat(7,auto);
+        color: white;
+    }
+
+    #psearch {
+        height: 30px;
+        display: grid;
+        grid-template-columns: repeat(3,auto);
+        margin-right: 10px;
+    }
+
+    
+    #products {
+        background-color: #ccc;
+        border-radius: 8px 0px 0px 8px;
+        border: none;
+        width: 50px;
+        margin-right: -25px;
+    }
+
+    #psearch button {
+        background-color: bisque;
+        border-radius: 0px 8px 8px 0px ;
+        padding: 10px 5px;
+        border: none;
+        margin-left: -12px ;
+    }
+
+    .lang {
+        width: 80px;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+   #sbar {
+        width: 400px;
+        padding: 4px;
+   }
+
+   .navbar {
+    display: grid;
+    grid-template-columns: repeat(13,auto);
+    text-decoration: none;
+    background-color: #232F3E;
+    
+    
+    
+}
+
+.nfont {
+    color: white;
+    text-decoration: none;
+    font-size: 18npx;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #0F1111;
+    color: white;
+    padding: 10px;
+    gap: 20px;
+}
+
+.nav-logo img {
+    height: 40px;
+    cursor: pointer;
+}
+
+.nav-location, 
+.nav-item, 
+.nav-cart {
+    cursor: pointer;
+}
+
+.small-text {
+    font-size: 12px;
+    color: #ccc;
+}
+
+.bold-text {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav-search {
+    display: flex;
+    flex: 1;
+    max-width: 600px;
+}
+
+.search-category {
+    padding: 10px;
+    border: none;
+    background-color: #E6E6E6;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.search-btn {
+    padding: 10px 15px;
+    background-color: #febd69;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+@media (max-width: 600px) {
+
+  /* Top Navbar */
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-search {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  /* Main product grids → 1 column */
+  .row1,
+  .row2 {
+    grid-template-columns: 1fr !important;
+    padding: 10px;
+  }
+
+  .box {
+    width: 100%;
+  }
+
+  /* Images full width */
+  .innerbox .pic img,
+  .c1 .pic img {
+    width: 100%;
+  }
+
+  /* Gaming row */
+  .row3 .c1 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+  .row1,
+  .row2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .row3 .c1 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nav-search {
+    max-width: 100%;
+  }
+}
+
+
+@media (min-width: 901px) and (max-width: 1200px) {
+
+  .row1,
+  .row2 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .row3 .c1 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Style Navbar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="nav-logo">
+            <a href="#"><img src="https://via.placeholder.com/100x40?text=LOGO" alt="Logo"></a>
+        </div>
+
+        <!-- Location -->
+        <div class="nav-location">
+            <span class="small-text">Deliver to</span>
+            <span class="bold-text">India</span>
+        </div>
+
+        <!-- Search bar -->
+        <div class="nav-search">
+            <select class="search-category">
+                <option>All</option>
+                <option>Electronics</option>
+                <option>Fashion</option>
+                <option>Books</option>
+            </select>
+
+            <input type="text" class="search-input" placeholder="Search here...">
+            <button class="search-btn">🔍</button>
+        </div>
+
+        <!-- Account -->
+        <div class="nav-item">
+            <span class="small-text">Hello, User</span>
+            <span class="bold-text">Accounts & Lists</span>
+        </div>
+
+        <!-- Returns -->
+        <div class="nav-item">
+            <span class="small-text">Returns</span>
+            <span class="bold-text">& Orders</span>
+        </div>
+
+        <!-- Cart -->
+        <div class="nav-cart">
+            🛒 <span class="bold-text">Cart</span>
+        </div>
+    </nav>
+
+</body>
+</html>
+
+        <div class="navbar">
+            <a href="#" class="nfont">All</a>
+            <a href="#" class="nfont">Fresh</a>
+            <a href="#" class="nfont">MX Player</a>
+            <a href="#" class="nfont">Sell</a>
+            <a href="#" class="nfont">BestSellers</a>
+            <a href="#" class="nfont">Mobiles</a>
+            <a href="#" class="nfont">Today's Deals</a>
+            <a href="#" class="nfont">Prime</a>
+            <a href="#" class="nfont">Customer Service</a>
+            <a href="#" class="nfont">Electronics</a>
+            <a href="#" class="nfont">New Releases</a>
+            <a href="#" class="nfont">Fashion</a>
+            <a href="#" class="nfont">Home & Kitchen</a>
+        </div>
+
+        
+
+
+        <div class="row1">
+
+            <!--Box 1 Start here -->
+            <div class="box">
+
+                <div class="r1"><h3>Revamp You Home With In Style</h3></div>
+
+                <div class="r2">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/cusion.jpg" alt=""></div>
+                        <p>Cusion Cover, Bedsheet and More...</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/astronots.jpg" alt=""></div>
+                        <p>Figurines vases and More...</p>
+                    </div>
+                </div>
+
+                <div class="r3">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/tool - Copy.jpg" alt=""></div>
+                        <p>Starting From 199rs | Lightning Materials</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/wallpaper - Copy.jpg""></div>
+                        <p>Starting Upto 499rs</p>
+                    </div>
+                </div>
+
+                <div class="r4">
+                    <a href="#">Explore More...</a>
+                </div>
+
+            </div>
+
+            <!--Box 2 Start Here-->
+
+            <div class="box">
+                <div class="r1"><h3>Appliances for you home | Upto 55% off </h3></div>
+
+                <div class="r2">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/Air Condtioner.jpg" alt=""></div>
+                        <p>Air Condtioner</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/microwaves.jpg""></div>
+                        <p>Figurines vases and More...</p>
+                    </div>
+                </div>
+
+                <div class="r3">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/washingmachine.jpg" alt=""></div>
+                        <p>Home Storage</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/lightning.jpg" alt=""></div>
+                        <p>Lightning Solution</p>
+                    </div>
+                </div>
+
+                <div class="r4">
+                    <a href="#">Explore More...</a>
+                </div>
+            </div>
+
+            <!--Box 3 start here-->
+
+            <div class="box">
+                <div class="r1"><h3>Starting ₹149 | Headphones</h3></div>
+
+                <div class="r2">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/boat.jpg" alt=""></div>
+                        <p>Starting 249rs | BoAt</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/boult.jpg" alt=""></div>
+                        <p>Starting 649rs | Boult</p>
+                    </div>
+                </div>
+
+                <div class="r3">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/noise - Copy.jpg" alt=""></div>
+                        <p>Starting from 999rs | Noise</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/zebronics - Copy.jpg" alt=""></div>
+                        <p>Starting Upto 1499rs | Zebronics</p>
+                    </div>
+                </div>
+
+                <div class="r4">
+                    <a href="#">Explore More...</a>
+                </div>
+            </div>
+
+            <!--Box 4 Start here-->
+            <div class="box">
+                <div class="r1"><h3>Under ₹499 | Deals on home improvement</h3></div>
+
+                <div class="r2">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/katha - Copy.jpg" alt=""></div>
+                        <p>Starting from 99rs | Cleaning Supplies</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/shower - Copy.jpg" alt=""></div>
+                        <p>Under 399rs | Bathroom Accessories</p>
+                    </div>
+                </div>
+
+                <div class="r3">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/homestorage.jpg" alt=""></div>
+                        <p>Home Storage</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/lightning.jpg" alt=""></div>
+                        <p>Lightning Solution</p>
+                    </div>
+                </div>
+
+                <div class="r4">
+                    <a href="#">Explore More...</a>
+                </div>
+            </div>
+        </div>
+
+        <!--ROW 2 START HERE-->
+
+        <div class="row2">
+
+            
+            <!--Box 1 Start here -->
+            <div class="box">
+
+                <div class="r1"><h3>Up to 50% off | Baby care & toys | Amazon Brands</h3></div>
+
+                <div class="r2">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/diapers - Copy - Copy.jpg" alt=""></div>
+                        <p>upto 40% off | Baby Care</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/ghota - Copy - Copy.jpg" alt=""></div>
+                        <p>Toy for kids Under 99rs</p>
+                    </div>
+                </div>
+
+                <div class="r3">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/babay safty.jpg" alt=""></div>
+                        <p>Starting from 199rs | baby Safety </p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/RC CArs.jpg" alt=""></div>
+                        <p>Rc Car</p>
+                    </div>
+                </div>
+
+                <div class="r4">
+                    <a href="#">Explore More...</a>
+                </div>
+
+            </div>
+
+            <!--Box 2 Start Here-->
+
+            <div class="box">
+                <div class="r1"><h3>Automotive essentials | Up to 60% off</h3></div>
+
+                <div class="r2">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/cleaning accessroies.jpg" alt=""></div>
+                        <p>Cleaning Accessories</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/tyre and fim car - Copy - Copy.jpg" alt=""></div>
+                        <p>Tyre and Rim Care</p>
+                    </div>
+                </div>
+
+                <div class="r3">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/helmets.jpg" alt=""></div>
+                        <p>Helmets</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/vaccum cleaner.jpg" alt=""></div>
+                        <p>vaccum Cleaner</p>
+                    </div>
+                </div>
+
+                <div class="r4">
+                    <a href="#">Explore More...</a>
+                </div>
+            </div>
+
+            <!--Box 3 start here-->
+
+            <div class="box">
+                <div class="r1"><h3>Starting ₹199 | Amazon Brands & more
+                </h3></div>
+
+                <div class="r2">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/bedsheet.jpg" alt=""></div>
+                        <p>Starting 199rs | BedhSheet.</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/parde.jpg" alt=""></div>
+                        <p>Starting 199rs | Curtain</p>
+                    </div>
+                </div>
+
+                <div class="r3">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/board.jpg" alt=""></div>
+                        <p>Ironing Bed and More...</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/hiran.jpg" alt=""></div>
+                        <p>Upto 66% off | Home Decor</p>
+                    </div>
+                </div>
+
+                <div class="r4">
+                    <a href="#">Explore More...</a>
+                </div>
+            </div>
+
+            <!--Box 4 Start here-->
+            <div class="box">
+                <div class="r1"><h3>Get your desired TV screen size | Starting ₹6,999
+                </h3></div>
+
+                <div class="r2">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/tv1.jpg" alt=""></div>
+                        <p>Budget Tv's | Save Extra's with no Cost EMI</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/tv2.jpg" alt=""></div>
+                        <p>4k TV's | Upto 24 months No Cost EMI</p>
+                    </div>
+                </div>
+
+                <div class="r3">
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/tv3.jpg" alt=""></div>
+                        <p>Big Screen Free Installation</p>
+                    </div>
+                    <div class="innerbox">
+                        <div class="pic"> <img src="images/tv4.jpg" alt=""></div>
+                        <p>Ultra Premium tV's Upto 22% off</p>
+                    </div>
+                </div>
+
+                <div class="r4">
+                    <a href="#">Explore More...</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row3"> 
+            <div class="c1">
+                <h3>Starting ₹499 | Gear Up For Victory, Next-level Gaming Starts Here</h3>
+            </div>
+            <div class="c1">
+                <div class="c1 pic"> <img src="images/controller1 - Copy.jpg" alt=""></div>
+
+                <div class="c1 pic"> <img src="images/mouse.jpg" alt=""></div>
+                <div class="c1 pic"> <img src="images/keyboards.jpg" alt=""></div>
+                <div class="c1 pic"> <img src="images/controller2.jpg" alt=""></div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
